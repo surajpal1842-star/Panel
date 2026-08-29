@@ -1,0 +1,74 @@
+{
+  "panel": "active",
+  "game": "freefire",
+  "features": {
+    "aimbot": {
+      "enabled": true,
+      "fov": 35,
+      "smooth": 45,
+      "target": "head",
+      "distance": 200,
+      "silent": true
+    },
+    "wallhack": {
+      "enabled": true,
+      "color": "#ff0000",
+      "distance": 300,
+      "chams": true,
+      "glow": true
+    },
+    "esp": {
+      "enabled": true,
+      "box": true,
+      "health": true,
+      "distance": true,
+      "name": true,
+      "weapon": true,
+      "snaplines": true
+    },
+    "norecoil": {
+      "enabled": true,
+      "horizontal": 0,
+      "vertical": 0
+    },
+    "headshot": {
+      "enabled": true,
+      "chance": 95,
+      "distance": 180
+    },
+    "triggerbot": {
+      "enabled": true,
+      "delay": 10,
+      "distance": 150
+    },
+    "speedhack": {
+      "enabled": false,
+      "multiplier": 1.5
+    },
+    "radar": {
+      "enabled": true,
+      "enemies": true,
+      "loot": true,
+      "vehicles": true
+    }
+  },
+  "verbs": [
+    "panel_active",
+    "enable_aimbot",
+    "enable_wallhack",
+    "enable_esp",
+    "enable_no_recoil",
+    "enable_auto_headshot",
+    "enable_triggerbot",
+    "enable_radar"
+  ],
+  "settings": {
+    "menuKey": "F1",
+    "showFPS": true,
+    "antiBan": true,
+    "version": "3.0.0"
+  },
+  "bypass": true,
+  "noVerification": true,
+  "lastUpdated": "2026-08-29T12:00:00.000Z"
+}
