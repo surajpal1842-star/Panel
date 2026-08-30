@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>⚡ NEXON MODX · USERNAME KEY GATEWAY</title>
+    <title>⚡ NEXON MODX · ULTIMATE GATEWAY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     
     <style>
@@ -24,6 +24,7 @@
             overflow-x: hidden;
         }
 
+        /* Animated RGB Background Border Effect */
         .card {
             position: relative;
             background: #0a0a12;
@@ -86,20 +87,6 @@
             margin-top: 4px;
         }
 
-        .input-box {
-            width: 100%;
-            padding: 14px;
-            margin: 15px 0 5px 0;
-            background: #121220;
-            border: 2px solid #00ffcc;
-            color: #fff;
-            border-radius: 12px;
-            outline: none;
-            font-size: 15px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
-        }
-
         .terminal-box {
             background: #04040a;
             border: 1px solid rgba(0, 255, 204, 0.3);
@@ -108,9 +95,9 @@
             font-family: 'Courier New', monospace;
             font-size: 13px;
             color: #00ffcc;
-            height: 140px;
+            height: 150px;
             overflow-y: auto;
-            margin: 15px 0;
+            margin: 20px 0;
             text-align: left;
             line-height: 1.6;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
@@ -201,8 +188,19 @@
             box-shadow: 0 0 20px #ff0000;
         }
 
+        /* ADMIN STYLE */
         .admin-card {
             display: none;
+        }
+        .input-box {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #121220;
+            border: 1px solid #ff007f;
+            color: #fff;
+            border-radius: 10px;
+            outline: none;
         }
 
         @keyframes fadeIn {
@@ -222,23 +220,22 @@
         <img src="https://i.ibb.co/67tSm6Gr/logo.png" class="logo" onclick="toggleAdminPrompt()" title="Triple Click for Admin" />
         <div class="title">
             NEXON MODX
-            <small>⚡ USERNAME AS KEY GATEWAY</small>
+            <small>⚡ MULTI-COLOR ANTI-BYPASS GATE</small>
         </div>
-
-        <input type="text" class="input-box" id="usernameInput" placeholder="Enter Your Telegram Username" />
 
         <div class="terminal-box" id="terminal">
             > SYSTEM_INIT ... [OK]<br>
-            > ENTER USERNAME & CLICK GET KEY<br>
+            > PROTECTION ... [ACTIVE]<br>
+            > STATUS ... WAITING FOR TASK<br>
         </div>
 
         <button class="btn-main" id="genBtn" onclick="startVerification()">
-            <i class="fas fa-bolt"></i> Verify & Activate Key
+            <i class="fas fa-bolt"></i> Get Key via Shortener
         </button>
 
         <div class="key-box" id="keyBox">
-            <div style="color: #a0a0c0; font-size: 12px;">YOUR UNLOCKED USERNAME KEY:</div>
-            <div class="key-text" id="displayKey">USERNAME</div>
+            <div style="color: #a0a0c0; font-size: 12px;">YOUR UNLOCKED KEY:</div>
+            <div class="key-text" id="displayKey">NEXON_XXXXX</div>
         </div>
 
         <div class="social-section">
@@ -254,7 +251,7 @@
             <small>🛡️ DIRECT KEY GENERATOR</small>
         </div>
 
-        <input type="text" class="input-box" id="adminKeyName" placeholder="Custom Key Name" />
+        <input type="text" class="input-box" id="adminKeyName" placeholder="Custom Key Name (e.g. NEXON_VIP)" />
         <input type="number" class="input-box" id="adminKeyDays" value="1" placeholder="Validity Days" />
 
         <button class="btn-main" style="background: linear-gradient(90deg, #ff0055, #ff0000); margin-top: 10px;" onclick="adminCreateKey()">
@@ -300,38 +297,32 @@
         }
         document.addEventListener('click', startHindiMusic, { once: true });
 
-        // ============ VERIFICATION LOGIC WITH USERNAME ============
+        // ============ VERIFICATION LOGIC ============
         async function startVerification() {
             startHindiMusic();
-            const usernameInput = document.getElementById('usernameInput').value.trim();
             const btn = document.getElementById('genBtn');
             const terminal = document.getElementById('terminal');
-
-            if (!usernameInput) {
-                alert("Kripya apna Telegram Username daalein!");
-                return;
-            }
-
+            
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Generating Link...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Generating Shortlink...';
 
             let currentUrl = window.location.href.split('?')[0];
+
             if (!currentUrl.startsWith('http://') && !currentUrl.startsWith('https://')) {
                 currentUrl = "https://google.com";
             }
 
-            // Target URL me username pass kar rahe hain
-            const targetUrl = currentUrl + `?task_completed=true&uname=${encodeURIComponent(usernameInput)}`;
+            const targetUrl = currentUrl + (currentUrl.includes('?') ? '&' : '?') + "task_completed=true";
             const apiUrl = `https://vplink.in/api?api=${VPLINK_API_KEY}&url=${encodeURIComponent(targetUrl)}`;
 
-            terminal.innerHTML += `<br><span style="color:#00ffcc;">> USER: ${usernameInput}</span><br><span style="color:#00ffcc;">> REQUESTING SHORTLINK...</span>`;
+            terminal.innerHTML += '<br><span style="color:#00ffcc;">> REQUESTING SHORTLINK...</span>';
 
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
 
                 if (data.status === "success" && data.shortenedUrl) {
-                    terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ REDIRECTING TO SHORTENER...</span>';
+                    terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ SUCCESS! REDIRECTING...</span>';
                     setTimeout(() => {
                         window.location.href = data.shortenedUrl;
                     }, 800);
@@ -349,36 +340,49 @@
         // ============ CHECK AFTER TASK COMPLETION ============
         window.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const taskCompleted = urlParams.get('task_completed');
-            const uname = urlParams.get('uname');
 
-            if (taskCompleted === 'true' && uname) {
+            if (urlParams.get('task_completed') === 'true') {
                 const terminal = document.getElementById('terminal');
                 const keyBox = document.getElementById('keyBox');
                 const btn = document.getElementById('genBtn');
-                const inputField = document.getElementById('usernameInput');
 
-                inputField.style.display = 'none';
                 btn.style.display = 'none';
-                terminal.innerHTML += `<br><span style="color:#00ffcc;">✔ SHORTENER COMPLETED!</span><br>> ACTIVATING KEY FOR: ${uname}...`;
+                terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ TASK VERIFIED!</span><br>> SAVING TO FIREBASE...';
 
+                // 🔥 FIXED: USERNAME AS KEY - using the actual username (or fallback)
+                let username = urlParams.get('username') || 'NEXON_USER';
+                const generatedKey = username.toUpperCase();
+
+                // ✅ FIX: CHECK IF KEY ALREADY EXISTS, IF NOT THEN CREATE
                 const now = new Date();
                 const expDate = new Date();
-                expDate.setDate(now.getDate() + 1); // 1 Day Validity
+                expDate.setDate(now.getDate() + 1);
 
                 try {
-                    await db.push().set({
-                        user_key: uname, // Username hi Key ban jayega
-                        created_at: now.toISOString(),
-                        expires_at: expDate.toISOString(),
-                        status: "ACTIVE"
-                    });
-
-                    document.getElementById('displayKey').innerText = uname;
-                    keyBox.style.display = 'block';
-                    terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ USERNAME KEY ACTIVATED!</span>';
+                    // Check if key already exists
+                    const snapshot = await db.orderByChild('user_key').equalTo(generatedKey).once('value');
+                    
+                    if (snapshot.exists()) {
+                        // Key exists - just show it
+                        terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ KEY ALREADY EXISTS!</span>';
+                        document.getElementById('displayKey').innerText = generatedKey;
+                        keyBox.style.display = 'block';
+                    } else {
+                        // Key doesn't exist - create new
+                        await db.push().set({
+                            user_key: generatedKey,
+                            username: generatedKey,
+                            created_at: now.toISOString(),
+                            expires_at: expDate.toISOString(),
+                            status: "ACTIVE"
+                        });
+                        terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ KEY UNLOCKED!</span>';
+                        document.getElementById('displayKey').innerText = generatedKey;
+                        keyBox.style.display = 'block';
+                    }
                 } catch(e) {
                     terminal.innerHTML += '<br><span style="color:#ff0055;">✖ FIREBASE SAVE ERROR!</span>';
+                    console.error(e);
                 }
             }
         });
@@ -408,23 +412,31 @@
             const keyInput = document.getElementById('adminKeyName').value.trim();
             const days = parseInt(document.getElementById('adminKeyDays').value) || 1;
 
-            if (!keyInput) {
-                alert("Key name dalein!");
-                return;
-            }
-
+            const keyName = keyInput || "NEXON_ADMIN_" + Math.random().toString(36).substring(2, 8).toUpperCase();
             const now = new Date();
             const expDate = new Date();
             expDate.setDate(now.getDate() + days);
 
-            await db.push().set({
-                user_key: keyInput,
-                created_at: now.toISOString(),
-                expires_at: expDate.toISOString(),
-                status: "ACTIVE"
-            });
+            try {
+                // Check if key already exists
+                const snapshot = await db.orderByChild('user_key').equalTo(keyName).once('value');
+                if (snapshot.exists()) {
+                    alert(`Key "${keyName}" already exists!`);
+                    return;
+                }
+                
+                await db.push().set({
+                    user_key: keyName,
+                    username: keyName,
+                    created_at: now.toISOString(),
+                    expires_at: expDate.toISOString(),
+                    status: "ACTIVE"
+                });
 
-            alert(`Direct Key Created: ${keyInput}`);
+                alert(`✅ Direct Key Created: ${keyName}`);
+            } catch(e) {
+                alert('❌ Error creating key: ' + e.message);
+            }
         }
     </script>
 </body>
