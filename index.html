@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>⚡ NEXON MODX · ULTIMATE GATEWAY</title>
+    <title>⚡ NEXON MODX · USERNAME KEY GATEWAY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     
     <style>
@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated RGB Background Border Effect */
         .card {
             position: relative;
             background: #0a0a12;
@@ -35,6 +34,401 @@
             text-align: center;
             box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
             z-index: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ff0055, #00ffcc, #0077ff, #ff00ff);
+            background-size: 400%;
+            border-radius: 26px;
+            z-index: -1;
+            animation: rgbGlow 8s linear infinite;
+        }
+
+        @keyframes rgbGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            border: 3px solid #00ffcc;
+            cursor: pointer;
+            box-shadow: 0 0 25px #00ffcc;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff007f, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .title small {
+            font-size: 12px;
+            color: #a0a0c0;
+            display: block;
+            letter-spacing: 2px;
+            margin-top: 4px;
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0 5px 0;
+            background: #121220;
+            border: 2px solid #00ffcc;
+            color: #fff;
+            border-radius: 12px;
+            outline: none;
+            font-size: 15px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+        }
+
+        .terminal-box {
+            background: #04040a;
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #00ffcc;
+            height: 140px;
+            overflow-y: auto;
+            margin: 15px 0;
+            text-align: left;
+            line-height: 1.6;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .btn-main {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, #ff0055, #ff00aa);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px rgba(255, 0, 85, 0.9);
+        }
+
+        .key-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 2px dashed #00ffcc;
+            border-radius: 15px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .key-text {
+            font-size: 22px;
+            color: #00ffcc;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            user-select: all;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+
+        .social-section {
+            margin-top: 25px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-social {
+            flex: 1;
+            padding: 12px;
+            border-radius: 30px;
+            border: 1px solid #0077ff;
+            background: rgba(0, 119, 255, 0.1);
+            color: #0077ff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-social:hover {
+            background: #0077ff;
+            color: #fff;
+            box-shadow: 0 0 20px #0077ff;
+        }
+
+        .btn-yt {
+            border-color: #ff0000;
+            color: #ff0000;
+            background: rgba(255, 0, 0, 0.1);
+        }
+
+        .btn-yt:hover {
+            background: #ff0000;
+            color: #fff;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        .admin-card {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+
+    <!-- USER PANEL -->
+    <div class="card" id="userCard">
+        <img src="https://i.ibb.co/67tSm6Gr/logo.png" class="logo" onclick="toggleAdminPrompt()" title="Triple Click for Admin" />
+        <div class="title">
+            NEXON MODX
+            <small>⚡ USERNAME AS KEY GATEWAY</small>
+        </div>
+
+        <input type="text" class="input-box" id="usernameInput" placeholder="Enter Your Telegram Username" />
+
+        <div class="terminal-box" id="terminal">
+            > SYSTEM_INIT ... [OK]<br>
+            > ENTER USERNAME & CLICK GET KEY<br>
+        </div>
+
+        <button class="btn-main" id="genBtn" onclick="startVerification()">
+            <i class="fas fa-bolt"></i> Verify & Activate Key
+        </button>
+
+        <div class="key-box" id="keyBox">
+            <div style="color: #a0a0c0; font-size: 12px;">YOUR UNLOCKED USERNAME KEY:</div>
+            <div class="key-text" id="displayKey">USERNAME</div>
+        </div>
+
+        <div class="social-section">
+            <a href="https://t.me/+A6gOgQKrDTA5NDFl" target="_blank" class="btn-social"><i class="fab fa-telegram-plane"></i> Telegram</a>
+            <a href="https://youtube.com/@nexora_ofc-oo" target="_blank" class="btn-social btn-yt"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div class="card admin-card" id="adminCard">
+        <div class="title" style="background: linear-gradient(90deg, #ff0000, #ff7700); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            ADMIN CONTROL
+            <small>🛡️ DIRECT KEY GENERATOR</small>
+        </div>
+
+        <input type="text" class="input-box" id="adminKeyName" placeholder="Custom Key Name" />
+        <input type="number" class="input-box" id="adminKeyDays" value="1" placeholder="Validity Days" />
+
+        <button class="btn-main" style="background: linear-gradient(90deg, #ff0055, #ff0000); margin-top: 10px;" onclick="adminCreateKey()">
+            <i class="fas fa-plus-circle"></i> Create Direct Key
+        </button>
+
+        <button class="btn-main" style="margin-top: 10px; background: #222;" onclick="closeAdmin()">
+            Close Admin
+        </button>
+    </div>
+
+    <!-- HINDI BACKGROUND MUSIC -->
+    <audio id="bgMusic" loop>
+        <source src="https://files.catbox.moe/8p8i9g.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ============ FIREBASE CONFIG ============
+        const firebaseConfig = {
+            apiKey: "AIzaSyD4baxJQhHiKIto_qqCVtXy_n-g8aXOZr8",
+            authDomain: "aimbot-6d3c5.firebaseapp.com",
+            databaseURL: "https://aimbot-6d3c5-default-rtdb.firebaseio.com",
+            projectId: "aimbot-6d3c5",
+            storageBucket: "aimbot-6d3c5.firebasestorage.app",
+            messagingSenderId: "942225115896",
+            appId: "1:942225115896:android:1071eb874db818acfd090d"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database().ref("zx_mamun_vip");
+
+        // ============ VPLINK API SETTINGS ============
+        const VPLINK_API_KEY = "c96b87f01a26be8731712a777feb2ea7500b6a18";
+
+        // ============ AUDIO CONTROLS ============
+        const bgAudio = document.getElementById('bgMusic');
+        let musicStarted = false;
+
+        function startHindiMusic() {
+            if (!musicStarted) {
+                bgAudio.volume = 0.5;
+                bgAudio.play().then(() => { musicStarted = true; }).catch(e => {});
+            }
+        }
+        document.addEventListener('click', startHindiMusic, { once: true });
+
+        // ============ VERIFICATION LOGIC WITH USERNAME ============
+        async function startVerification() {
+            startHindiMusic();
+            const usernameInput = document.getElementById('usernameInput').value.trim();
+            const btn = document.getElementById('genBtn');
+            const terminal = document.getElementById('terminal');
+
+            if (!usernameInput) {
+                alert("Kripya apna Telegram Username daalein!");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Generating Link...';
+
+            let currentUrl = window.location.href.split('?')[0];
+            if (!currentUrl.startsWith('http://') && !currentUrl.startsWith('https://')) {
+                currentUrl = "https://google.com";
+            }
+
+            // Target URL me username pass kar rahe hain
+            const targetUrl = currentUrl + `?task_completed=true&uname=${encodeURIComponent(usernameInput)}`;
+            const apiUrl = `https://vplink.in/api?api=${VPLINK_API_KEY}&url=${encodeURIComponent(targetUrl)}`;
+
+            terminal.innerHTML += `<br><span style="color:#00ffcc;">> USER: ${usernameInput}</span><br><span style="color:#00ffcc;">> REQUESTING SHORTLINK...</span>`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.status === "success" && data.shortenedUrl) {
+                    terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ REDIRECTING TO SHORTENER...</span>';
+                    setTimeout(() => {
+                        window.location.href = data.shortenedUrl;
+                    }, 800);
+                } else {
+                    throw new Error("Invalid response");
+                }
+            } catch (err) {
+                terminal.innerHTML += '<br><span style="color:#ff0055;">✖ FALLBACK REDIRECT...</span>';
+                setTimeout(() => {
+                    window.location.href = apiUrl;
+                }, 1000);
+            }
+        }
+
+        // ============ CHECK AFTER TASK COMPLETION ============
+        window.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const taskCompleted = urlParams.get('task_completed');
+            const uname = urlParams.get('uname');
+
+            if (taskCompleted === 'true' && uname) {
+                const terminal = document.getElementById('terminal');
+                const keyBox = document.getElementById('keyBox');
+                const btn = document.getElementById('genBtn');
+                const inputField = document.getElementById('usernameInput');
+
+                inputField.style.display = 'none';
+                btn.style.display = 'none';
+                terminal.innerHTML += `<br><span style="color:#00ffcc;">✔ SHORTENER COMPLETED!</span><br>> ACTIVATING KEY FOR: ${uname}...`;
+
+                const now = new Date();
+                const expDate = new Date();
+                expDate.setDate(now.getDate() + 1); // 1 Day Validity
+
+                try {
+                    await db.push().set({
+                        user_key: uname, // Username hi Key ban jayega
+                        created_at: now.toISOString(),
+                        expires_at: expDate.toISOString(),
+                        status: "ACTIVE"
+                    });
+
+                    document.getElementById('displayKey').innerText = uname;
+                    keyBox.style.display = 'block';
+                    terminal.innerHTML += '<br><span style="color:#00ffcc;">✔ USERNAME KEY ACTIVATED!</span>';
+                } catch(e) {
+                    terminal.innerHTML += '<br><span style="color:#ff0055;">✖ FIREBASE SAVE ERROR!</span>';
+                }
+            }
+        });
+
+        // ============ ADMIN SYSTEM ============
+        let clickCount = 0;
+        function toggleAdminPrompt() {
+            clickCount++;
+            if (clickCount >= 3) {
+                clickCount = 0;
+                const pass = prompt("Enter Admin Passcode:");
+                if (pass === "NEXON123") {
+                    document.getElementById('adminCard').style.display = 'block';
+                    document.getElementById('userCard').style.display = 'none';
+                } else {
+                    alert("Wrong Password!");
+                }
+            }
+        }
+
+        function closeAdmin() {
+            document.getElementById('adminCard').style.display = 'none';
+            document.getElementById('userCard').style.display = 'block';
+        }
+
+        async function adminCreateKey() {
+            const keyInput = document.getElementById('adminKeyName').value.trim();
+            const days = parseInt(document.getElementById('adminKeyDays').value) || 1;
+
+            if (!keyInput) {
+                alert("Key name dalein!");
+                return;
+            }
+
+            const now = new Date();
+            const expDate = new Date();
+            expDate.setDate(now.getDate() + days);
+
+            await db.push().set({
+                user_key: keyInput,
+                created_at: now.toISOString(),
+                expires_at: expDate.toISOString(),
+                status: "ACTIVE"
+            });
+
+            alert(`Direct Key Created: ${keyInput}`);
+        }
+    </script>
+</body>
+</html>            z-index: 1;
         }
 
         .card::before {
